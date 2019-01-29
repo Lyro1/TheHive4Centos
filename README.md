@@ -16,5 +16,48 @@ It will automatically download TheHive and ElasticSearch and install them. Howev
 ### ElasticSearch
 First, you will need to setup your ElasticSearch so that TheHive can use it properly. To do so, follow the instructions provided [here](https://github.com/TheHive-Project/TheHiveDocs/blob/master/installation/install-guide.md#configuration).
 
+We will consider that ElasticSearch and TheHive run on the same environment. Simply edit `/etc/elasticsearch/elasticsearch.yml` and add the following lines:
+
+```
+network.host: 127.0.0.1
+network.port:9200
+script.inline: true
+cluster.name: hive
+thread_pool.index.queue_size: 100000
+thread_pool.search.queue_size: 100000
+thread_pool.bulk.queue_size: 100000
+```
+
+Then you can enter the following commands:
+
+```
+sudo systemctl enable elasticsearch.service
+sudo systemctl start elasticsearch.service
+sudo systemctl status elasticsearch.service
+```
+
+Check that the service is running well with the `sudo systemctl status elasticsearch.service` command. If so, you can check that ElasticSearch is running with the following command:
+
+```
+curl 'http://127.0.0.1:9200/?pretty'
+```
+
+You should get this kind of response. If so, your ElasticSearch is well configured !
+
+```
+{
+  "name" : "Tom Foster",
+  "cluster_name" : "elasticsearch",
+  "version" : {
+    "number" : "2.1.0",
+    "build_hash" : "72cd1f1a3eee09505e036106146dc1949dc5dc87",
+    "build_timestamp" : "2015-11-18T22:40:03Z",
+    "build_snapshot" : false,
+    "lucene_version" : "5.3.1"
+  },
+  "tagline" : "You Know, for Search"
+}
+```
+
 ### TheHive
 TheHive provides an entire documentation on how to setup it properly. Just follow [this guide](https://github.com/TheHive-Project/TheHiveDocs/blob/master/admin/configuration.md#configuration-guide).
