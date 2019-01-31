@@ -1,6 +1,12 @@
 # TheHive4Centos
 An easy installer for The Hive on Centos
 
+## A few prerequisites
+Be aware that TheHive and ElasticSearch require some hardware specifications.
+>TheHive uses ElasticSearch to store data. Both software use a Java VM. We recommend using a 
+>virtual machine with 8vCPU, 8 GB of RAM and 60 GB of disk. You can also use a physical 
+>machine with similar specifications.
+
 ## Usage
 
 Simply call the script like so:
