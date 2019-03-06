@@ -67,3 +67,7 @@ You should get this kind of response. If so, your ElasticSearch is well configur
 
 ### TheHive
 TheHive provides an entire documentation on how to setup it properly. Just follow [this guide](https://github.com/TheHive-Project/TheHiveDocs/blob/master/admin/configuration.md#configuration-guide).
+
+## MISP
+
+TheHive needs a link with a MISP instance to analyse attachements. Just follow [this guide](https://misp.github.io/MISP/xINSTALL.centos7/) to install MISP and then [this other guide](https://github.com/TheHive-Project/TheHiveDocs/blob/master/admin/configuration.md#7-misp) to configure it for TheHive.
